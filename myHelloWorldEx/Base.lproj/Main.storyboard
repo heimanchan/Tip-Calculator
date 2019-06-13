@@ -18,24 +18,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4x4-ym-fjb">
-                                <rect key="frame" x="188" y="515" width="40" height="52"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4x4-ym-fjb">
+                                <rect key="frame" x="187" y="491" width="40" height="52"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="33"/>
                                 <state key="normal" title="Hi!"/>
                                 <connections>
                                     <action selector="greetingButtonWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jg1-7A-JQk"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hello World" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hCG-Wr-FSN">
-                                <rect key="frame" x="28" y="342" width="358" height="89"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello World" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hCG-Wr-FSN">
+                                <rect key="frame" x="28" y="291" width="358" height="89"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="74"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nch-Pp-iMp">
+                                <rect key="frame" x="134" y="429" width="146" height="38"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="nch-Pp-iMp" firstAttribute="top" secondItem="hCG-Wr-FSN" secondAttribute="bottom" constant="49" id="6ne-j5-4cJ"/>
+                            <constraint firstItem="nch-Pp-iMp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="134" id="HsN-Qh-3sI"/>
+                            <constraint firstItem="nch-Pp-iMp" firstAttribute="centerX" secondItem="hCG-Wr-FSN" secondAttribute="centerX" id="NyD-4W-KdA"/>
+                            <constraint firstItem="nch-Pp-iMp" firstAttribute="centerX" secondItem="4x4-ym-fjb" secondAttribute="centerX" id="bYc-O7-UE8"/>
+                            <constraint firstItem="nch-Pp-iMp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hcM-Uj-Que"/>
+                            <constraint firstItem="4x4-ym-fjb" firstAttribute="top" secondItem="nch-Pp-iMp" secondAttribute="bottom" constant="24" id="lFy-YH-pTb"/>
+                            <constraint firstItem="nch-Pp-iMp" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="rTV-cu-NCp"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
