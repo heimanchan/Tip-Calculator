@@ -19,6 +19,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     subtotalTextField.delegate = self
     
+    let tap: UITapGestureRecognizer = UITapGestureRecognizer(
+      target: self.view,
+      action: #selector(UIView.endEditing(_:))
+    )
+    tap.cancelsTouchesInView = false
+    view.addGestureRecognizer(tap)
+    
     // Listen for keyboard events
     NotificationCenter.default.addObserver(
       self,
@@ -79,12 +86,21 @@ class ViewController: UIViewController, UITextFieldDelegate {
     subtotalTextField.resignFirstResponder()
   }
   
+//  func dismissKeyboard() {
+//    view.endEditing(true)
+//  }
+  
   @objc func keyboardWillChange(notification: Notification) {
     guard let keyboardRect = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
       return
     }
     
-    view.frame.origin.y = -keyboardRect.height
+    if notification.name == UIResponder.keyboardWillShowNotification ||
+      notification.name == UIResponder.keyboardWillChangeFrameNotification {
+      view.frame.origin.y = -keyboardRect.height
+    } else {
+      view.frame.origin.y = 0
+    }
   }
 
 }
