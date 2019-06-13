@@ -9,11 +9,13 @@
 import UIKit
 
 class ViewController: UIViewController {
-
-  @IBOutlet var greetingLabel : UILabel!
-  @IBOutlet var nameField : UITextField!
-  @IBAction func greetingButton(sender:UIButton) {
-    greetingLabel.text = "Hi!"
+  @IBOutlet weak var tenPercentLabel : UILabel!
+  @IBOutlet weak var fifteenPercentLabel : UILabel!
+  @IBOutlet weak var twentyPercentLabel : UILabel!
+  @IBOutlet weak var subtotalTextField: UITextField!
+  
+  @IBAction func calculateButtonPressed(_ sender: Any) {
+    print("test")
   }
   
   override func viewDidLoad() {
