@@ -80,7 +80,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
   }
   
   @objc func keyboardWillChange(notification: Notification) {
-    print("Keyboard will show: \(notification.name.rawValue)")
+    guard let keyboardRect = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
+      return
+    }
+    
+    view.frame.origin.y = -keyboardRect.height
   }
 
 }
