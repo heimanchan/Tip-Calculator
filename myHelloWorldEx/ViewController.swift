@@ -23,8 +23,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
       target: self.view,
       action: #selector(UIView.endEditing(_:))
     )
-    tap.cancelsTouchesInView = false
+//    tap.cancelsTouchesInView = false
     view.addGestureRecognizer(tap)
+    
+    
     
     // Listen for keyboard events
     NotificationCenter.default.addObserver(
@@ -71,7 +73,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
   // Actions
   @IBAction func calculateButtonPressed(_ sender: Any) {
     print("Calculate Button Clicked")
-    subtotalTextField.text = "Free"
+    hideKeyboard()
+    calculateAllTips()
   }
   
   // Functions
@@ -79,6 +82,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
   func textFieldShouldReturn(_ textField: UITextField) -> Bool {
     print("Pressed return")
     hideKeyboard()
+    calculateAllTips()
     return true
   }
   
@@ -86,9 +90,22 @@ class ViewController: UIViewController, UITextFieldDelegate {
     subtotalTextField.resignFirstResponder()
   }
   
-//  func dismissKeyboard() {
-//    view.endEditing(true)
-//  }
+  func calculateAllTips() {
+    guard let subtotal = convertCurrencyToDouble(input: subtotalTextField.text!) else {
+      print("not a number \(subtotalTextField.text)")
+      return
+    }
+    
+    print("The subtotal is \(subtotal)")
+  }
+  
+  func convertCurrencyToDouble(input: String) -> Double? {
+    let numberFormatter = NumberFormatter()
+    numberFormatter.numberStyle = .currency
+    numberFormatter.locale = Locale.current
+    
+    return numberFormatter.number(from: input)?.doubleValue
+  }
   
   @objc func keyboardWillChange(notification: Notification) {
     guard let keyboardRect = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
