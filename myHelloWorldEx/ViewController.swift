@@ -104,9 +104,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
     let tip3 = calculateTip(subtotal: subtotal, tipPercentage: 20.0)
     
     // Update UI
-    tenPercentLabel.text = String(tip1)
-    fifteenPercentLabel.text = String(tip2)
-    twentyPercentLabel.text = String(tip3)
+    tenPercentLabel.text = convertDoubleToCurrency(amount: tip1)
+    fifteenPercentLabel.text = convertDoubleToCurrency(amount: tip2)
+    twentyPercentLabel.text = convertDoubleToCurrency(amount: tip3)
   }
   
   // tipPercentage: 10% => 10
@@ -120,6 +120,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
     numberFormatter.locale = Locale.current
     
     return numberFormatter.number(from: input)?.doubleValue
+  }
+  
+  func convertDoubleToCurrency(amount: Double) -> String {
+    let numberFormatter = NumberFormatter()
+    numberFormatter.numberStyle = .currency
+    numberFormatter.locale = Locale.current
+    
+    return numberFormatter.string(from: NSNumber(value: amount))!
   }
   
   @objc func keyboardWillChange(notification: Notification) {
