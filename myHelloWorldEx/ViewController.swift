@@ -92,11 +92,26 @@ class ViewController: UIViewController, UITextFieldDelegate {
   
   func calculateAllTips() {
     guard let subtotal = convertCurrencyToDouble(input: subtotalTextField.text!) else {
-      print("not a number \(subtotalTextField.text)")
+      print("not a number")
       return
     }
     
     print("The subtotal is \(subtotal)")
+    
+    // Calculate tips
+    let tip1 = calculateTip(subtotal: subtotal, tipPercentage: 10.0)
+    let tip2 = calculateTip(subtotal: subtotal, tipPercentage: 15.0)
+    let tip3 = calculateTip(subtotal: subtotal, tipPercentage: 20.0)
+    
+    // Update UI
+    tenPercentLabel.text = String(tip1)
+    fifteenPercentLabel.text = String(tip2)
+    twentyPercentLabel.text = String(tip3)
+  }
+  
+  // tipPercentage: 10% => 10
+  func calculateTip(subtotal: Double, tipPercentage: Double) -> Double {
+    return subtotal * (tipPercentage / 100.0)
   }
   
   func convertCurrencyToDouble(input: String) -> Double? {
