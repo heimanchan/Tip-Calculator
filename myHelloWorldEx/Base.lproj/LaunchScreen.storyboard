@@ -18,12 +18,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="shiba_launch" translatesAutoresizingMaskIntoConstraints="NO" id="PZ1-JI-FNJ">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="shiba_launch" translatesAutoresizingMaskIntoConstraints="NO" id="PZ1-JI-FNJ">
                                 <rect key="frame" x="-148" y="44" width="710" height="788"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="710" id="RMp-9N-36j"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="PZ1-JI-FNJ" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="2df-ag-HRW"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="PZ1-JI-FNJ" secondAttribute="bottom" constant="30" id="45j-8e-Tph"/>
+                            <constraint firstItem="PZ1-JI-FNJ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="GeW-nf-Otw"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
